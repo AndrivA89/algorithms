@@ -25,7 +25,7 @@ func SelectSort(array []int) {
 	}
 
 	fmt.Printf("number of operations = %d\n", countSwap)
-	fmt.Printf("duration = %vms (%0.3vs)\n\n",
+	fmt.Printf("duration = %v ms (%.3v s)\n\n",
 		time.Since(startWork).Milliseconds(),
 		time.Since(startWork).Seconds())
 }

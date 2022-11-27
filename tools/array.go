@@ -1,11 +1,11 @@
-package main
+package tools
 
 import (
 	"math/rand"
 	"time"
 )
 
-func initArray(size int) []int {
+func InitArray(size int) []int {
 	array := make([]int, size)
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
