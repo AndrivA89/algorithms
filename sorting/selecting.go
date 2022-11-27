@@ -1,8 +1,15 @@
 package sorting
 
-func SelectSort(array []int) []int {
-	var result []int
+import (
+	"fmt"
+	"time"
+)
 
+func SelectSort(array []int) {
+	startWork := time.Now()
+	fmt.Printf("SELECT SORT - array size: %v\n", len(array))
+
+	countSwap := 0
 	for i := range array {
 		min := i
 		for j := i + 1; j < len(array); j++ {
@@ -13,8 +20,12 @@ func SelectSort(array []int) []int {
 
 		if min != i {
 			array[i], array[min] = array[min], array[i]
+			countSwap++
 		}
 	}
 
-	return result
+	fmt.Printf("number of operations = %d\n", countSwap)
+	fmt.Printf("duration = %vms (%0.3vs)\n\n",
+		time.Since(startWork).Milliseconds(),
+		time.Since(startWork).Seconds())
 }
