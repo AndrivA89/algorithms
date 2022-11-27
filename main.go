@@ -1,18 +1,15 @@
 package main
 
 import (
+	"github.com/AndrivA89/algorithms/recursion"
 	"github.com/AndrivA89/algorithms/sorting"
+	"github.com/AndrivA89/algorithms/tools"
 )
 
-var arr []int
-
 func main() {
-	arr = initArray(1000)
-	sorting.SelectSort(arr)
+	sorting.SelectSort(tools.InitArray(1000))
+	sorting.SelectSort(tools.InitArray(50000))
 
-	arr = initArray(10000)
-	sorting.SelectSort(arr)
-
-	arr = initArray(100000)
-	sorting.SelectSort(arr)
+	recursion.Factorial(3)
+	recursion.Factorial(50)
 }
