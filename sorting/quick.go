@@ -22,35 +22,41 @@ func QuickSort(array []int) {
 
 func quickSort(data []int, start, end int) {
 	if start < end {
-		base := data[start]
+		base := data[start] // опорный элемент
 		left := start
 		right := end
 
 		for left < right {
+			// Выбираем первый элемент меньше базового, уменьшая правую границу
 			for left < right && data[right] >= base {
 				right--
 				countOperation++
 			}
 			if left < right {
+				// Закидываем элемент, меньший базового в левую часть массива в нашем случае на место опорного элемента
 				data[left] = data[right]
 				left++
 				countOperation++
 			}
 
+			// Выбираем первый элемент больше базового, увеличивая левую границу
 			for left < right && data[left] <= base {
 				left++
 				countOperation++
 			}
 			if left < right {
+				// Закидываем элемент, больший базового в правую часть массива на место бывшего элемента меньшего опорного
 				data[right] = data[left]
 				right--
 				countOperation++
 			}
 		}
 
+		// Устанавливаем опорный элемент на место первого элемента больше опорного, найденного от левой границы
 		data[left] = base
 		countOperation++
 
+		// Начинаем рекурсивно делить массив выбранным опорным элементом
 		quickSort(data, start, left-1)
 		quickSort(data, left+1, end)
 	}
