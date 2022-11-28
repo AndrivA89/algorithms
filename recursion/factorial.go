@@ -14,11 +14,12 @@ func factorial(number uint64) uint64 {
 }
 
 func Factorial(number uint64) uint64 {
-	now := time.Now()
+	startWork := time.Now()
 	result := factorial(number)
 
-	fmt.Printf("FACTORIAL %d is %d\n", number, result)
-	fmt.Printf("duration %v ns\n\n", time.Since(now).Nanoseconds())
+	fmt.Println("RECURSION")
+	fmt.Printf("Factorial %d is %d\n", number, result)
+	fmt.Printf("duration %v ns\n\n", time.Since(startWork).Nanoseconds())
 
 	return result
 }
