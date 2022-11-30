@@ -19,7 +19,7 @@ func Factorial(number uint64) uint64 {
 
 	fmt.Println("RECURSION")
 	fmt.Printf("Factorial %d is %d\n", number, result)
-	fmt.Printf("duration %v ns\n\n", time.Since(startWork).Nanoseconds())
+	fmt.Printf("duration = %v ns\n\n", time.Since(startWork).Nanoseconds())
 
 	return result
 }
