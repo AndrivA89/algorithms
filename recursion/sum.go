@@ -11,7 +11,7 @@ func SumOfNumbers(array []int) int {
 
 	fmt.Println("RECURSION")
 	fmt.Printf("Sum %d elements of array is %d\n", len(array), result)
-	fmt.Printf("duration %v ms (%0.3v s)\n\n",
+	fmt.Printf("duration = %v ms (%0.3v s)\n\n",
 		time.Since(startWork).Milliseconds(),
 		time.Since(startWork).Seconds())
 

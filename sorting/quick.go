@@ -20,6 +20,10 @@ func QuickSort(array []int) {
 		time.Since(startWork).Seconds())
 }
 
+func QuickSortWithoutLogs(array []int) {
+	quickSort(array, 0, len(array)-1)
+}
+
 func quickSort(data []int, start, end int) {
 	if start < end {
 		base := data[start] // опорный элемент
