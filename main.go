@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/AndrivA89/algorithms/dynamic"
 	"github.com/AndrivA89/algorithms/recursion"
 	"github.com/AndrivA89/algorithms/search"
 	"github.com/AndrivA89/algorithms/sorting"
@@ -34,4 +35,14 @@ func main() {
 	search.SearchByTree(uniqArray, uniqArray[len(uniqArray)-1])
 	uniqArray = tools.InitArrayWithUniqElements(500000)
 	search.SearchByTree(uniqArray, tools.RandElementOfArray(uniqArray))
+
+	dynamic.FindBestOption(
+		map[string]int{"Moscow": 2, "NewYork": 7, "London": 5, "Praga": 3}, 
+		map[string]int{"Moscow": 1, "NewYork": 3, "London": 3, "Praga": 2}, 5)
+	dynamic.FindBestOption(
+		map[string]int{"Macbook": 8, "PS5": 9, "Samsung phone": 4, "Iphone": 3},
+		map[string]int{"Macbook": 2999, "PS5": 1000, "Samsung phone": 1699, "Iphone": 1699}, 4999)
+	dynamic.FindBestOption(
+		map[string]int{"вода": 10, "книга": 3, "еда": 9, "куртка": 5, "камера": 6},
+		map[string]int{"вода": 3, "книга": 1, "еда": 2, "куртка": 2, "камера": 1}, 6)
 }
