@@ -9,9 +9,14 @@ func FindClosestWord(entered string, list []string) string {
 	startWork := time.Now()
 	countOperation = 0
 
-	matchList := make([]int, 0, len(list))
+	matchList := make([]float64, 0, len(list))
 	for _, l := range list {
-		value := checkTwoWords(entered, l)
+		value := 0.0
+		if len(entered) <= len(l) {
+			value = float64(checkTwoWords(entered, l)) / float64(len(l))
+		} else {
+			value = float64(checkTwoWords(l, entered)) / float64(len(entered))
+		}
 		matchList = append(matchList, value)
 	}
 
@@ -37,20 +42,19 @@ func FindClosestWord(entered string, list []string) string {
 	return list[indexMax]
 }
 
-func checkTwoWords(entered, forCheck string) int {
-	matrix := make([][]int, len(entered))
+func checkTwoWords(shortest, longest string) int {
+	matrix := make([][]int, len(shortest))
 	for i := range matrix {
 		countOperation++
-		matrix[i] = make([]int, len(forCheck))
+		matrix[i] = make([]int, len(longest))
 	}
 
-	for i := 0; i < len(entered); i++ {
-		for j := 0; j < len(forCheck); j++ {
+	for i := 0; i < len(shortest); i++ {
+		equalInLine := false
+		for j := 0; j < len(longest); j++ {
 			countOperation++
-			if i > len(forCheck) {
-				break
-			}
-			if entered[i] == forCheck[j] {
+			if shortest[i] == longest[j] && !equalInLine {
+				equalInLine = true
 				if i != 0 {
 					if j != 0 {
 						matrix[i][j] = matrix[i][j-1]
@@ -61,7 +65,7 @@ func checkTwoWords(entered, forCheck string) int {
 						countOperation++
 						continue
 					}
-					matrix[i][j] = matrix[i-1][j] + 1
+					matrix[i][j] = matrix[i-1][len(longest)-1] + 1
 					countOperation++
 					continue
 				}
@@ -84,7 +88,7 @@ func checkTwoWords(entered, forCheck string) int {
 					countOperation++
 					continue
 				}
-				matrix[i][j] = matrix[i-1][j]
+				matrix[i][j] = matrix[i-1][len(longest)-1]
 				countOperation++
 				continue
 			}
@@ -99,5 +103,5 @@ func checkTwoWords(entered, forCheck string) int {
 		}
 	}
 
-	return matrix[len(entered)-1][len(forCheck)-1]
+	return matrix[len(shortest)-1][len(longest)-1]
 }
