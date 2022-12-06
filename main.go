@@ -49,4 +49,8 @@ func main() {
 	dynamic.FindClosestWord("fesh", []string{"fish", "hash", "diss", "fresh", "ffresshh"})
 	dynamic.FindClosestWord("fresh", []string{"fish", "hash", "diss", "f_false_re_word_sh", "fesh"})
 	dynamic.FindClosestWord("ffresshh", []string{"fish", "hash", "diss", "fresh"})
+	// false result = sif
+	dynamic.FindClosestWord("fis", []string{"fish", "hash", "diss", "fresh", "sif"})
+	// correct result = fish
+	dynamic.FindClosestWordV2("fis", []string{"fish", "hash", "diss", "fresh", "sif"})
 }
