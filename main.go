@@ -46,5 +46,7 @@ func main() {
 		map[string]int{"вода": 10, "книга": 3, "еда": 9, "куртка": 5, "камера": 6},
 		map[string]int{"вода": 3, "книга": 1, "еда": 2, "куртка": 2, "камера": 1}, 6)
 
-	dynamic.FindClosestWord("fesh", []string{"fish", "hash", "diss", "fresh"})
+	dynamic.FindClosestWord("fesh", []string{"fish", "hash", "diss", "fresh", "ffresshh"})
+	dynamic.FindClosestWord("fresh", []string{"fish", "hash", "diss", "f_false_re_word_sh", "fesh"})
+	dynamic.FindClosestWord("ffresshh", []string{"fish", "hash", "diss", "fresh"})
 }
