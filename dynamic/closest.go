@@ -42,6 +42,8 @@ func FindClosestWord(entered string, list []string) string {
 	return list[indexMax]
 }
 
+// Заполняет веса не только по диагонали, тем самым лучше подходит для поиска слова
+// с максимальным количеством одинаковых букв, независимо от их последовательности
 func checkTwoWords(shortest, longest string) int {
 	matrix := make([][]int, len(shortest))
 	for i := range matrix {
